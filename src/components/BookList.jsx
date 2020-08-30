@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faList, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { store } from "react-notifications-component";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class BookList extends Component {
   state = {
@@ -25,7 +25,7 @@ class BookList extends Component {
   //a method responsibile for getting all books from the server
   getAllBooks = () => {
     axios
-      .get("http://localhost:10606/api/v1/books/")
+      .get("http://104.171.113.18:10606/api/v1/books/")
       .then((response) => response.data)
       .then((data) => {
         this.setState({
@@ -38,7 +38,7 @@ class BookList extends Component {
   //hanling delete button
   handleDelete = (book_id) => {
     axios
-      .delete("http://localhost:10606/api/v1/books/" + book_id)
+      .delete("http://104.171.113.18:10606/api/v1/books/" + book_id)
       .then((response) => {
         if (response.data != null) {
           console.log("book deleted successfully!");

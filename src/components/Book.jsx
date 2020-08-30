@@ -35,7 +35,7 @@ class Book extends Component {
     const id = this.props.match.params.id;
     console.log(id);
     axios
-      .get("http://localhost:10606/api/v1/books/" + id)
+      .get("http://104.171.113.18:10606/api/v1/books/" + id)
       .then((response) => response.data)
       .then((data) => {
         console.log(data);
@@ -51,7 +51,7 @@ class Book extends Component {
     //if id not null then we wanna edit
     if (this.state.id) {
       axios
-        .put("http://localhost:10606/api/v1/books/" + this.state.id, this.state)
+        .put("http://104.171.113.18:10606/api/v1/books/" + this.state.id, this.state)
         .then(() => {
           console.log("book edited successfullly!");
           this.setState(this.initialState);
@@ -72,7 +72,7 @@ class Book extends Component {
 
       //making the post request
       axios
-        .post("http://localhost:10606/api/v1/books/", book)
+        .post("http://104.171.113.18:10606/api/v1/books/", book)
         .then((response) => {
           if (response.data != null) {
             this.setState(this.initialState);
